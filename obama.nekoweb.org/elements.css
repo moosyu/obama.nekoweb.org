@@ -1,0 +1,39 @@
+.site-box {
+	text-align: center;
+	background-color: #241E1F;
+	background-image: url('//obama.nekoweb.org/assets/backgrounds/obama.jpg');
+	background-size: 100%;
+	color: #ccc;
+	font-size: 10px;
+	overflow: visible;
+}
+
+.site-box > a > p {
+	color: #ccc;
+	font-weight: bold;
+	font-family: Monospace;
+}
+
+.site-box > a > .sitefeature {
+    opacity:0;
+}
+
+.site-box .screenshot {
+	visibility: hidden;
+}
+
+.site-box > a > span {
+    color: #ccc;
+    background-color: blue;
+}
+
+.follow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: auto;
+    z-index: 99;
+}

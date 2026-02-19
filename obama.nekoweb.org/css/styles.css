@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    padding:0;
+    background: #282828;
+    font-family: monospace;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.sidebar,
+.content {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    min-height: 500px;
+}
+
+.sidebar {
+    flex-grow: 1;
+    min-width: 300px;
+}
+
+.content {
+    flex-grow: 5;
+    min-width: 630px;
+    padding: 10px;
+}
+
+li {
+    list-style-type: none;
+    font-size: 15px;
+    text-shadow: 0 0 .5vh var(--lights), 0 0 .3vh var(--lights), 0 0 .3vh var(--lights), 0 0 .5vh var(--lights), 0 0 1vh var(--lights);
+    filter:brightness(1);
+    color: white;
+}
+
+a {
+    color: white;
+}
+
+li > a {
+    text-decoration: none;
+}
+
+li:hover {
+    animation: flicker 7s infinite;
+}
+
+@keyframes flicker{
+    9%{
+    text-shadow: 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 1vh var(--lights);;
+    filter:brightness(1)
+    }
+    10%{
+        text-shadow:none;
+    filter:brightness(.4);
+    }
+    11%{
+    text-shadow: 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 1vh var(--lights);;
+    filter:brightness(1)
+    }
+    12%{
+        text-shadow:none;
+    filter:brightness(.4);
+    }
+    13%{
+    text-shadow: 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 1vh var(--lights);;
+    filter:brightness(1)
+    }
+    66%{
+    text-shadow: 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 1vh var(--lights);;
+    filter:brightness(1)
+    }
+    67%{
+        text-shadow:none;
+    filter:brightness(.4);
+    }
+    75%{
+        text-shadow:none;
+    filter:brightness(.4);
+    }
+    76%{
+    text-shadow: 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 1vh var(--lights);;
+    filter:brightness(1)
+    }
+}
+
+.button-grow {
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55), z-index 0s;
+    width: 88px;
+    height: 31px;
+    position: relative;
+    z-index: 1;
+}
+
+.button-grow:hover,
+.button-grow:active {
+    transform: scale(1.5);
+}
+
+.button-grow:not(:hover) {
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55), z-index 0s 0.4s;
+}
