@@ -7,14 +7,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
 
-      - name: Deploy to NekoWeb
-        uses: indiefellas/deploy2nekoweb@main
-        with:
-          nekoweb-api-key: ${{ secrets.NEKOWEB_API_KEY }}
-          nekoweb-domain: 'obama.nekoweb.org'
-          nekoweb-username: 'obama'
-          directory: 'obama.nekoweb.org'
+    steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+
+        - name: Deploy to NekoWeb
+          uses: indiefellas/deploy2nekoweb@main
+          with:
+            nekoweb-api-key: ${{ secrets.NEKOWEB_API_KEY }}
+            nekoweb-domain: 'sitename.nekoweb.org'
+            nekoweb-username: 'sitename'
+            directory: 'sitename.nekoweb.org'
