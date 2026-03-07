@@ -1,0 +1,117 @@
+:root {
+    --background-color: #fffeda;
+    --border-color: #e5d9a5;
+    --text-color: #261f11;
+}
+
+@font-face {
+    font-family: Gilda;
+    src: url("/assets/fonts/GildaDisplay-Regular.ttf");
+}
+
+body {
+    background-color: var(--background-color);
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+nav {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    transform: translateY(-50%);
+    gap: 20px;
+    border-width: 3px 3px 3px 0;
+    border-color: var(--border-color);
+    border-style: solid;
+    border-radius: 0 15px 15px 0;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    font-family: Gilda;
+    margin: 25px auto;
+    text-align: center;
+}
+
+header, main {
+    position: relative;
+    border: 3px var(--border-color) solid;
+    max-width: 1000px;
+    border-radius: 15px;
+}
+
+header::before, header::after, main::before, main::after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    background: var(--background-color);
+    z-index: 0;
+}
+
+header::before, header::after {
+    height: 90%;
+    top: 5%;
+}
+
+main::before, main::after {
+    top: 16px;
+    bottom: 16px;
+}
+
+header::before, main::before {
+    left: -3px;
+}
+
+header::after, main::after {
+    right: -3px;
+}
+
+.header-text > h1 {
+    font-weight: normal;
+    font-size: 12vw;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    margin: 0;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: url("/assets/backgrounds/usa-flag.svg");
+    background-position: 0% 15%;
+    -webkit-text-stroke: 2px var(--text-color);
+}
+
+.header-text > h4 {
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    margin: 0;
+}
+
+.header-text > h4 > a {
+    color: var(--text-color);
+}
+
+main {
+    margin: 85px auto;
+    padding: 10px 20px;
+}
+
+.selfie {
+    position: absolute;
+    top: 2vw;
+    width: 17vw;
+    right: -13vw;
+    z-index: 1;
+}
+
+.tooltip {
+    cursor: default;
+    text-decoration: underline wavy;
+}
