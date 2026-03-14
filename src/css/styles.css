@@ -1,6 +1,6 @@
 :root {
-    --background-color: #fffeda;
-    --border-color: #e5d9a5;
+    --background-color: #f3e7d2;
+    --border-color: #1e1e1d;
     --text-color: #261f11;
 }
 
@@ -18,17 +18,19 @@ body {
 }
 
 nav {
-    position: fixed;
     display: flex;
-    flex-direction: column;
-    top: 50%;
-    transform: translateY(-50%);
+    flex-direction: row;
     gap: 20px;
-    border-width: 3px 3px 3px 0;
-    border-color: var(--border-color);
-    border-style: solid;
-    border-radius: 0 15px 15px 0;
+    border-bottom: 3px var(--border-color) solid;
     padding: 20px;
+}
+
+nav > a {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color);
 }
 
 header {
@@ -74,7 +76,7 @@ header::after, main::after {
 
 .header-text > h1 {
     font-weight: normal;
-    font-size: 12vw;
+    font-size: clamp(4rem, 16vw, 11rem);
     text-transform: uppercase;
     letter-spacing: 10px;
     margin: 0;
@@ -105,13 +107,26 @@ main {
 
 .selfie {
     position: absolute;
-    top: 2vw;
-    width: 17vw;
-    right: -13vw;
+    top: 13%;
+    width: clamp(153px, 26%, 260px);
+    right: -19%;
     z-index: 1;
 }
 
-.tooltip {
+.tooltip-text {
     cursor: default;
     text-decoration: underline wavy;
+}
+
+#tooltip {
+    background: #222;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 90%;
+    width: max-content;
+    position: absolute;
+    top: 0;
+    left: 0;
 }

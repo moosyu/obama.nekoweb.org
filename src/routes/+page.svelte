@@ -1,17 +1,21 @@
 <script lang="ts">
-    import HomeIcon from "phosphor-svelte/lib/HouseIcon";
-    import MusicIcon from "phosphor-svelte/lib/MusicNoteIcon";
-    import ImageIcon from "phosphor-svelte/lib/ImageIcon";
-    import HeartIcon from "phosphor-svelte/lib/HeartIcon";
+    import { onMount } from "svelte";
+    import { computePosition } from "@floating-ui/dom";
+
+    onMount(() => {
+        const button = document.getElementById("button") as HTMLButtonElement;
+        const tooltip = document.getElementById("tooltip") as HTMLDivElement;
+
+        console.log(button);
+
+        computePosition(button, tooltip).then(({x, y}) => {
+            Object.assign(tooltip.style, {
+                left: `${x}px`,
+                top: `${y}px`,
+            });
+        });
+    });
 </script>
-
-
-<nav>
-    <a href="/"><HomeIcon size="30px" weight="fill" color="#261f11" /></a>
-    <a href="/"><MusicIcon size="30px" weight="fill" color="#261f11" /></a>
-    <a href="/"><ImageIcon size="30px" weight="fill" color="#261f11" /></a>
-    <a href="/"><HeartIcon size="30px" weight="fill" color="#261f11" /></a>
-</nav>
 
 <header>
     <div class="header-text">
@@ -22,5 +26,7 @@
 </header>
 
 <main>
-    <p>Hello America. The is the <span class="tooltip" title="(depending on who you ask)">OFFICIAL</span> site of the 42nd president of the United States Barack Hussein Obama II.</p>
+    <p>Hello America. The is the <span class="tooltip-text" title="(depending on who you ask)">OFFICIAL</span> site of the 42nd president of the United States Barack Hussein Obama II.</p>
+    <button id="button" aria-describedby="tooltip"> My button </button>
+    <div id="tooltip" role="tooltip">My tooltip</div>
 </main>
