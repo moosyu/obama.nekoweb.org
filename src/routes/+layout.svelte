@@ -1,5 +1,4 @@
 <script lang="ts">
-	import favicon from '/assets/obama.ico';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import "../css/styles.css";
 
@@ -7,7 +6,7 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<link rel="icon" href="/assets/obama.ico">
 </svelte:head>
 
 <Navbar />

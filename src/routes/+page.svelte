@@ -1,18 +1,20 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import { computePosition } from "@floating-ui/dom";
+    import { onMount } from "svelte"
+    import tippy from "tippy.js";
+    import "tippy.js/dist/tippy.css";
 
     onMount(() => {
-        const button = document.getElementById("button") as HTMLButtonElement;
-        const tooltip = document.getElementById("tooltip") as HTMLDivElement;
+        document.querySelectorAll("[title]").forEach(el => {
+            const title = el.getAttribute("title");
+            if (title) {
+                el.setAttribute("data-tippy-content", title);
+                el.removeAttribute("title");
+            }
+        });
 
-        console.log(button);
-
-        computePosition(button, tooltip).then(({x, y}) => {
-            Object.assign(tooltip.style, {
-                left: `${x}px`,
-                top: `${y}px`,
-            });
+        tippy("[data-tippy-content]", {
+            theme: "nwd",
+            arrow: true,
         });
     });
 </script>
@@ -26,7 +28,5 @@
 </header>
 
 <main>
-    <p>Hello America. The is the <span class="tooltip-text" title="(depending on who you ask)">OFFICIAL</span> site of the 42nd president of the United States Barack Hussein Obama II.</p>
-    <button id="button" aria-describedby="tooltip"> My button </button>
-    <div id="tooltip" role="tooltip">My tooltip</div>
+    <p>Hello America. The is the <span aria-describedby="tooltip" class="tooltip-text" title="(depending on who you ask)">OFFICIAL</span> site of the 42nd president of the United States Barack Hussein Obama II.</p>
 </main>
